@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +44,16 @@ public class UserController {
 		}
 		// take help of service layer
 		UserDetailDto userDetailDto =  this.userService.register(registerDto);
+		ResponseEntity<UserDetailDto> response = 
+				new ResponseEntity<UserDetailDto>(userDetailDto, HttpStatus.OK);
+		return response;
+	}
+	
+	// to return back user data
+	// REST End-Point : /user/get
+	@GetMapping("/get/{userId}")
+	public ResponseEntity<UserDetailDto> getUserDetail(@PathVariable Integer userId){
+		UserDetailDto userDetailDto = this.userService.getUserDetail(userId);
 		ResponseEntity<UserDetailDto> response = 
 				new ResponseEntity<UserDetailDto>(userDetailDto, HttpStatus.OK);
 		return response;

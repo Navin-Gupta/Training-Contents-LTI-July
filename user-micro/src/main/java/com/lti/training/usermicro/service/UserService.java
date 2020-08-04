@@ -5,4 +5,5 @@ import com.lti.training.usermicro.dto.UserDetailDto;
 
 public interface UserService {
 	public UserDetailDto register(RegisterDto registerDto);
+	public UserDetailDto getUserDetail(Integer userId);
 }

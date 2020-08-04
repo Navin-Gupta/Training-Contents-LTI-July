@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 import com.lti.training.usermicro.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer>, CustomUserRepository{
+public interface UserRepository extends JpaRepository<User, Integer> { // , CustomUserRepository{
 
-	User findByEmailIdAndPassword(String emailId, String password);
+	//User findByEmailIdAndPassword(String emailId, String password);
 	
-	@Query("select u from User where emailId LIKE = :criteria")
-	User getUserOnSpecificCriteria(String criteria);
+	/*@Query("select u from User where emailId LIKE = :criteria")
+	User getUserOnSpecificCriteria(String criteria);*/
 }
 
 /*
