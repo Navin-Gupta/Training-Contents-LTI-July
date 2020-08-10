@@ -21,9 +21,11 @@ function operationAndHandle(n1:number,
                             n2:number,
                             guest: (num : number)=>void
                             ){
-   const result = n1 + n2;
+   // const result = n1 + n2;
+   let result = n1 + n2;
    // some other should decide what to do
-   guest(result);
+   // guest(result);
+   guest(n1 + n2);
 
 }
 function handleResult(result : number){
