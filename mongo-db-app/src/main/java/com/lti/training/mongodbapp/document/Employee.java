@@ -14,6 +14,11 @@ public class Employee {
 	@Id
 	private String id;
 	private String name;
+	// @Id
 	private String email;
+	// embedded doc
+	//private Address[] addresses;
+	// ids of address documents from another collection
+	private String []address;
 	
 }
