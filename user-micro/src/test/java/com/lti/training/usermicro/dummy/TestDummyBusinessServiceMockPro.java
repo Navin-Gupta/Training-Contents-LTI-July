@@ -9,10 +9,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.internal.verification.AtLeast;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.powermock.reflect.Whitebox;
 
 import com.lti.training.usermicro.repository.DummyRepository;
 import com.lti.training.usermicro.service.DummyBusinessService;
+
+
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestDummyBusinessServiceMockPro {
@@ -61,4 +67,24 @@ public class TestDummyBusinessServiceMockPro {
 		int expectedResult = 4;
 		assertEquals(expectedResult, actualResult);
 	}
+	
+	@Test
+	public void testPrivateSum() throws Exception {
+		int actual = (int) Whitebox.invokeMethod(this.service, "sum", 20, 30);
+		assertEquals(55, actual);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

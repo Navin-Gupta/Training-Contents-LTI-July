@@ -32,6 +32,10 @@ public class DummyBusinessService {
 		return Arrays.stream(data).reduce(Integer::sum).orElse(0);
 	}
 	
+	private int sum(int a, int b) {
+		return a+b;
+	}
+	
 	
 }
 
